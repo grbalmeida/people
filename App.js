@@ -5,13 +5,20 @@ import axios from 'axios';
 import Header from './src/components/Header';
 
 export default class App extends Component {
-  renderList () {
+  constructor (props) {
+    super(props);
+
+    this.state = {
+      people: []
+    };
+  }
+
+  componentDidMount () {
     axios
       .get('https://randomuser.me/api/?nat=br&results=5')
       .then(response => {
         const { results } = response.data;
-        const names = results.map(person => person.name.first);
-        console.log(names);
+        this.setState({ people: results });
       });
   }
 
@@ -19,7 +26,6 @@ export default class App extends Component {
     return (
       <View>
         <Header title='People' />
-        {this.renderList()}
       </View>
     );
   }
