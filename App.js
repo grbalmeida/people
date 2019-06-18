@@ -22,10 +22,20 @@ export default class App extends Component {
       });
   }
 
+  renderList () {
+    const textElements = this.state.people.map((person, index) => {
+      const { first } = person.name;
+      return <Text key={index}>{first}</Text>
+    });
+
+    return textElements;
+  }
+
   render () {
     return (
       <View>
         <Header title='People' />
+        {this.renderList()}
       </View>
     );
   }
