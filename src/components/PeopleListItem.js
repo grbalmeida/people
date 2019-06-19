@@ -1,14 +1,16 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Image } from 'react-native'
 import PropTypes from 'prop-types'
 
 import { capitalizeFirstLetter } from '../utils'
 
 const PeopleListItem = ({ person }) => {
   const { first, last } = person.name
+  const { thumbnail } = person.picture
 
   return (
     <View style={styles.line}>
+      <Image style={styles.avatar} source={{ uri: thumbnail }} />
       <Text style={styles.lineText}>
         {`${capitalizeFirstLetter(first)} ${capitalizeFirstLetter(last)}`}
       </Text>
@@ -28,6 +30,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row'
+  },
+  avatar: {
+    aspectRatio: 1,
+    width: 50
   }
 })
 
@@ -36,6 +42,9 @@ PeopleListItem.propTypes = {
     name: PropTypes.shape({
       first: PropTypes.string,
       last: PropTypes.string
+    }),
+    picture: PropTypes.shape({
+      thumbnail: PropTypes.string
     })
   })
 }
