@@ -2,12 +2,16 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
 
+import { capitalizeFirstLetter } from '../utils'
+
 const PeopleListItem = ({ person }) => {
   const { first, last } = person.name
 
   return (
     <View style={styles.line}>
-      <Text style={styles.lineText}>{`${first} ${last}`}</Text>
+      <Text style={styles.lineText}>
+        {`${capitalizeFirstLetter(first)} ${capitalizeFirstLetter(last)}`}
+      </Text>
     </View>
   )
 }
