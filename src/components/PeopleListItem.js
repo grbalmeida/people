@@ -4,12 +4,15 @@ import PropTypes from 'prop-types'
 
 import { capitalizeFirstLetter } from '../utils'
 
-const PeopleListItem = ({ person }) => {
+const PeopleListItem = ({ person, navigateToPeopleDetail }) => {
   const { first, last } = person.name
   const { thumbnail } = person.picture
 
   return (
-    <TouchableOpacity onPress={() => console.log('Click')}>
+    <TouchableOpacity onPress={() => {
+      console.log('Click')
+      navigateToPeopleDetail()
+    }}>
       <View style={styles.line}>
         <Image style={styles.avatar} source={{ uri: thumbnail }} />
         <Text style={styles.lineText}>
@@ -50,7 +53,8 @@ PeopleListItem.propTypes = {
     picture: PropTypes.shape({
       thumbnail: PropTypes.string
     })
-  })
+  }),
+  navigateToPeopleDetail: PropTypes.func.isRequired
 }
 
 export default PeopleListItem

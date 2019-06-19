@@ -4,10 +4,18 @@ import PropTypes from 'prop-types'
 
 import PeopleListItem from './PeopleListItem'
 
-const PeopleList = ({ people }) => {
+const PeopleList = ({ people, onPressItem }) => {
   return (
     <View style={styles.container}>
-      {people.map((person, index) => <PeopleListItem person={person} key={index} />)}
+      {people.map((person, index) => {
+        return (
+          <PeopleListItem
+            person={person}
+            key={index}
+            navigateToPeopleDetail={onPressItem}
+          />
+        )
+      })}
     </View>
   )
 }
