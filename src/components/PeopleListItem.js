@@ -11,7 +11,7 @@ const PeopleListItem = ({ person, navigateToPeopleDetail }) => {
   return (
     <TouchableOpacity onPress={() => {
       console.log('Click')
-      navigateToPeopleDetail()
+      navigateToPeopleDetail({ person })
     }}>
       <View style={styles.line}>
         <Image style={styles.avatar} source={{ uri: thumbnail }} />
