@@ -19,7 +19,7 @@ export default class PeopleDetailPage extends Component {
           <Line label='City:' content={capitalizeFirstLetter(city)} />
           <Line label='State:' content={capitalizeFirstLetter(state)} />
           <Line label='Phone:' content={phone} />
-          <Line label='Nationality' content={nat} />
+          <Line label='Nationality:' content={nat} />
         </View>
       </View>
     )

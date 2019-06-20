@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 const Line = ({ label, content }) => (
   <View style={styles.line}>
     <Text style={[styles.cell, styles.label]}>{label}</Text>
-    <Text style={styles.cell}>{content}</Text>
+    <Text style={[styles.cell, styles.content]}>{content}</Text>
   </View>
 )
 
@@ -22,7 +22,11 @@ const styles = StyleSheet.create({
     paddingLeft: 5
   },
   label: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    flex: 1
+  },
+  content: {
+    flex: 3
   }
 })
 
