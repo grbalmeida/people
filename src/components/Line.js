@@ -2,9 +2,13 @@ import React from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
 
-const Line = ({ label, content }) => (
+const Line = ({ label = '', content = '-' }) => (
   <View style={styles.line}>
-    <Text style={[styles.cell, styles.label]}>{label}</Text>
+    <Text style={[
+      styles.cell,
+      styles.label,
+      label.length > 8 ? styles.longLabel : null
+    ]}>{label}</Text>
     <Text style={[styles.cell, styles.content]}>{content}</Text>
   </View>
 )
@@ -18,7 +22,7 @@ const styles = StyleSheet.create({
     borderColor: '#c5c5c5'
   },
   cell: {
-    fontSize: 16,
+    fontSize: 18,
     paddingLeft: 5
   },
   label: {
@@ -27,6 +31,9 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 3
+  },
+  longLabel: {
+    fontSize: 12
   }
 })
 
