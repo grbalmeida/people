@@ -10,7 +10,6 @@ const PeopleListItem = ({ person, navigateToPeopleDetail }) => {
 
   return (
     <TouchableOpacity onPress={() => {
-      console.log('Click')
       navigateToPeopleDetail({ person })
     }}>
       <View style={styles.line}>
