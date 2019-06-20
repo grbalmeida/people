@@ -13,18 +13,13 @@ export default class PeopleDetailPage extends Component {
         />
         <View style={styles.detailContainer}>
           <View style={styles.line}>
-            <Text style={styles.cellLabel}>Email: </Text>
-            <Text style={styles.cellContent}>{email}</Text>
+            <Text style={[styles.cell, styles.label]}>Email:</Text>
+            <Text style={styles.cell}>{email}</Text>
           </View>
         </View>
       </View>
     )
   }
-}
-
-const cell = {
-  fontSize: 16,
-  paddingLeft: 5
 }
 
 const styles = StyleSheet.create({
@@ -46,11 +41,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#c5c5c5'
   },
-  cellLabel: {
-    ...cell,
-    fontWeight: 'bold'
+  cell: {
+    fontSize: 16,
+    paddingLeft: 5
   },
-  cellContent: {
-    ...cell
+  label: {
+    fontWeight: 'bold'
   }
 })

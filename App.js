@@ -28,7 +28,7 @@ const StackNavigator = createStackNavigator({
   }
 }, {
   defaultNavigationOptions: {
-    title: 'Pessoas',
+    title: 'People',
     headerTintColor: 'white',
     headerStyle: {
       backgroundColor: '#6ca2f7',
