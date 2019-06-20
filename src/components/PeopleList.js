@@ -1,12 +1,12 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { ScrollView, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
 
 import PeopleListItem from './PeopleListItem'
 
 const PeopleList = ({ people, onPressItem }) => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {people.map((person, index) => {
         return (
           <PeopleListItem
@@ -16,7 +16,7 @@ const PeopleList = ({ people, onPressItem }) => {
           />
         )
       })}
-    </View>
+    </ScrollView>
   )
 }
 

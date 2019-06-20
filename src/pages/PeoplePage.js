@@ -15,7 +15,7 @@ export default class App extends Component {
 
   componentDidMount () {
     axios
-      .get('https://randomuser.me/api/?nat=br&results=5')
+      .get('https://randomuser.me/api/?nat=br&results=15')
       .then(response => {
         const { results } = response.data
         this.setState({ people: results })
