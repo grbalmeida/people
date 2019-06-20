@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { View, StyleSheet, ActivityIndicator } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import axios from 'axios'
 
+import Error from '../components/Error'
+import Loading from '../components/Loading'
 import PeopleList from '../components/PeopleList'
 
 export default class App extends Component {
@@ -10,7 +12,8 @@ export default class App extends Component {
 
     this.state = {
       people: [],
-      isLoading: false
+      isLoading: false,
+      error: false
     }
   }
 
@@ -25,11 +28,14 @@ export default class App extends Component {
           people: results,
           isLoading: false
         })
-      })
-  }
+      }).catch(error => {
+        console.log(error)
 
-  renderLoading () {
-    return <ActivityIndicator size='large' color='#6ca2f7' />
+        this.setState({
+          isLoading: false,
+          error: true
+        })
+      })
   }
 
   renderPeople () {
@@ -44,12 +50,16 @@ export default class App extends Component {
   }
 
   render () {
+    const { isLoading, error } = this.state
+
     return (
       <View style={styles.container}>
         {
-          this.state.isLoading
-            ? this.renderLoading()
-            : this.renderPeople()
+          isLoading
+            ? <Loading />
+            : error
+              ? <Error />
+              : this.renderPeople()
         }
       </View>
     )
